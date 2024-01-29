@@ -22,7 +22,7 @@
     "start": "cross-env SERVE=true webpack serve",
     "build": "webpack",
     "build-prod": "webpack --mode=production",
-    "clean": "rd /s /q dist",
+    "clean": "rd /s /q build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
