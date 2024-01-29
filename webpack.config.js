@@ -14,7 +14,7 @@ const plugins = [
     template: "./src/index.html",
   }),
   new MiniCssExtractPlugin({
-    filename: "[name].[contenthash].css", // Формат имени файла
+    filename: './[name].[contenthash].css'
   }),
 ]
 module.exports = {
@@ -24,7 +24,6 @@ module.exports = {
   entry: "./src/index.tsx",
   devtool: "source-map",
   output: {
-    publicPath: "/",
     filename: "bundle.js",
     path: path.resolve(__dirname, "build"),
   },
@@ -55,12 +54,11 @@ module.exports = {
       {
         test: /\.(s[ac]|c)ss$/i, // /\.(le|c)ss$/i если вы используете less
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
-      }, // Добавляем загрузчики стилей
+      },
       {
         test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
-        type: mode === "production" ? "asset" : "asset/resource", // В продакшен режиме
-        // изображения размером до 8кб будут инлайнится в код
-        // В режиме разработки все изображения будут помещаться в dist/assets
+        type: mode === "production" ? "asset" : "asset/resource",
+
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/i,
